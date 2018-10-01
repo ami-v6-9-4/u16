@@ -4,11 +4,25 @@ build:
 
   pre_ci_boot:
     image_name: drydock/u16
-    image_tag: master
+    image_tag: v6.9.4
     pull: true
     
   ci:   
     - python --version 
+    
+    - docker ps
+    - docker images
+    - node --version
+    - javac -version
+    - source /usr/local/rvm/scripts/rvm
+    - ruby --version
+    - gcloud version
+    - aws --version
+    - packer --version
+    - jq --version
+    - kubectl version --client
+    - docker --version
+    
     - docker pull shippabledocker/sample_node_pvt:ecr
     
 integrations:
