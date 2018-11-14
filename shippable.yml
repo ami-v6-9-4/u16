@@ -25,7 +25,8 @@ build:
     
     - docker pull shippabledocker/sample_node_pvt:ecr
     - EXPECTED_DOCKER_VERSION="17.06.0-ce"
-    - [ $(docker version --format {{.Server.Version}}) == "$EXPECTED_DOCKER_VERSION" ]
+    - |
+      [ $(docker version --format {{.Server.Version}}) == "$EXPECTED_DOCKER_VERSION" ]
     
 integrations:
     
