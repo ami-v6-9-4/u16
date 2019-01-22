@@ -8,26 +8,29 @@ build:
     pull: true
     
   ci:   
-    - python --version 
-    
+    - python --version    
     - docker ps
     - docker images
     - node --version
     - javac -version
     - source /usr/local/rvm/scripts/rvm
     - ruby --version
-    - gcloud version
-    - aws --version
-    - packer --version
+    - gcloud version #216.0.0
+    - aws --version #1.16.14
+    - eb --version #3.14.6
+    - az --version #2.0.45
+    - jfrog --version #1.19.1
+    - packer --version #1.3.0
     - jq --version
-    - kubectl version --client
-    - docker --version
-    
+    - ansible --version #2.6.4
+    - kubectl version --client #1.11.0
+    - terraform --version #0.11.8
+    - docker --version    
     - docker pull shippabledocker/sample_node_pvt:ecr
     - EXPECTED_DOCKER_VERSION="17.06.0-ce"
     - |
       [ $(docker version --format {{.Server.Version}}) == "$EXPECTED_DOCKER_VERSION" ]
-    
+
 integrations:
     
   hub:
